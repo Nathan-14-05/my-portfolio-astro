@@ -13,11 +13,13 @@ import Hero from '../components/Hero.astro';
                 tagline="Parcours académique, professionnel et compétences techniques."
             >
                 <div class="cv-container">
-                    <iframe 
-                        src="/assets/2nd_stage.pdf" 
-                        title="Aperçu du CV de Nathan M'boueya"
+                    <object 
+                        data="/assets/2nd_stage.pdf" 
+                        type="application/pdf"
                         class="cv-preview"
-                    ></iframe>
+                    >
+                        <p>Aperçu non disponible. Veuillez utiliser le lien de téléchargement ci-dessous.</p>
+                    </object>
 
                     <a 
                         href="/assets/2nd_stage.pdf" 
@@ -92,7 +94,7 @@ import Hero from '../components/Hero.astro';
         /* Ratio typique d'un CV A4 */
         aspect-ratio: 1 / 1.414; 
         border-radius: 0.75rem;
-        box-shadow: var(--shadow-xl); /* Ombre plus prononcée pour l'aperçu */
+        box-shadow: var(--shadow-xl); 
         border: 1px solid var(--gray-800);
     }
 
