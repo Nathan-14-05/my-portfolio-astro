@@ -1,0 +1,166 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout title="CV | Nathan M'boueya" description="Curriculum Vitae de Nathan M'boueya">
+    <div class="stack gap-20">
+        <main class="wrapper about">
+            
+            <Hero
+                title="Mon CV"
+                tagline="Parcours académique, professionnel et compétences techniques."
+            >
+                <div class="cv-container">
+                    <iframe 
+                        src="/assets/mon_cv.pdf" 
+                        title="Aperçu du CV de Nathan M'boueya"
+                        class="cv-preview"
+                    ></iframe>
+
+                    <a 
+                        href="/assets/mon_cv.pdf" 
+                        download="Nathan_Mboueya_CV.pdf" 
+                        class="download-link"
+                    >
+                        Télécharger le CV (PDF)
+                    </a>
+                </div>
+            </Hero>
+
+            <section>
+                <h2 class="section-title">Expérience Professionnelle</h2>
+                <div class="content">
+                    <p>
+                        **[Titre du Poste/Stage]** | [Nom de l'Entreprise] | [Date Début] - [Date Fin]
+                        <br>
+                        Description concise de la mission et des réalisations clés.
+                    </p>
+                    </div>
+            </section>
+
+            <section>
+                <h2 class="section-title">Formation & Diplômes</h2>
+                <div class="content">
+                    <p>
+                        **BTS SIO (Services Informatiques aux Organisations)** | [Nom de l'Établissement] | [Année d'Obtention prévue]
+                        <br>
+                        Option SLAM (Solutions Logicielles et Applications Métiers).
+                    </p>
+                    <p>
+                        **BUT Informatique (1ère Année)** | [Nom de l'IUT] | [Année]
+                    </p>
+                    <p>
+                        **Baccalauréat Général** | [Nom du Lycée] | [Année d'Obtention]
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2 class="section-title">Compétences Techniques</h2>
+                <div class="content">
+                    <p>
+                        **Langages :** HTML, CSS, JavaScript, Python, SQL.
+                        <br>
+                        **Frameworks/Librairies :** Astro, React (ou autre), Tailwind CSS.
+                        <br>
+                        **Outils :** Git/GitHub, VS Code, [Autres outils spécifiques].
+                    </p>
+                </div>
+            </section>
+        </main>
+
+        <ContactCTA />
+    </div>
+</BaseLayout>
+
+<style>
+    /* -------------------------------------------------------------------------- */
+    /* NOUVEAUX STYLES POUR L'APERÇU PDF ET LE BOUTON DE TÉLÉCHARGEMENT */
+    /* -------------------------------------------------------------------------- */
+    .cv-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem; /* Espace entre le CV et le bouton */
+        margin-top: 1.5rem;
+    }
+
+    .cv-preview {
+        width: 100%;
+        /* Ratio typique d'un CV A4 */
+        aspect-ratio: 1 / 1.414; 
+        border-radius: 0.75rem;
+        box-shadow: var(--shadow-xl); /* Ombre plus prononcée pour l'aperçu */
+        border: 1px solid var(--gray-800);
+    }
+
+    .download-link {
+        /* Style du bouton de téléchargement */
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        background-color: var(--accent-regular);
+        color: var(--gray-999);
+        text-decoration: none;
+        border-radius: 999rem;
+        font-weight: 600;
+        transition: background-color var(--theme-transition);
+    }
+
+    .download-link:hover {
+        background-color: var(--accent-dark);
+    }
+    /* -------------------------------------------------------------------------- */
+    /* STYLES DE LA MISE EN PAGE PRINCIPALE (REPRIS DE ABOUT.ASTRO) */
+    /* -------------------------------------------------------------------------- */
+    .about {
+        display: flex;
+        flex-direction: column;
+        gap: 3.5rem;
+    }
+
+    section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        color: var(--gray-200);
+    }
+
+    .section-title {
+        grid-column-start: 1;
+        font-size: var(--text-xl);
+        color: var(--gray-0);
+    }
+
+    .content {
+        grid-column: 2 / 4;
+    }
+
+    .content :global(a) {
+        text-decoration: 1px solid underline transparent;
+        text-underline-offset: 0.25em;
+        transition: text-decoration-color var(--theme-transition);
+    }
+
+    .content :global(a:hover),
+    .content :global(a:focus) {
+        text-decoration-color: currentColor;
+    }
+
+    @media (min-width: 50em) {
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 60% 1fr;
+        }
+
+        .about > :global(:first-child) {
+            grid-column-start: 2;
+        }
+
+        section {
+            display: contents;
+            font-size: var(--text-lg);
+        }
+    }
+</style>
