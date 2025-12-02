@@ -1,6 +1,48 @@
 ---
-// Exemple d'articles pour démarrer la frise
+// Problématique de la veille : "Quels sont les risques et les opportunités de l'IA générative pour le métier de développeur ?"
+
+// Tableau des articles classés par date (du plus récent au plus ancien pour une frise chronologique qui remonte le temps)
 const articles = [
+    {
+        date: 'Avril 2025',
+        title: 'Les environnements de développement basés sur le dialogue',
+        source: 'Blog IA Dev Tools',
+        link: 'https://blog.ia-dev-tools.com/dialogue-dev',
+        description: "Analyse de la prochaine génération d'outils de codage où l'on interagit avec l'IDE par la voix ou le chat, augmentant l'accessibilité et la vitesse de prototypage (Opportunité Productivité).",
+        theme: 'Productivité / UX'
+    },
+    {
+        date: 'Mars 2025',
+        title: 'Nouvelles régulations européennes ciblant la transparence des modèles de code',
+        source: 'Journal Regulations Tech',
+        link: 'https://journal-regulations-tech.eu/ai-code-act',
+        description: "Examen du projet de loi exigeant des éditeurs d'IA codante de divulguer les données d'entraînement pour garantir la conformité et l'absence de code sous licence restrictive (Risque Légal).",
+        theme: 'Légal / Éthique'
+    },
+    {
+        date: 'Mars 2025',
+        title: 'L\'IA pour la détection proactive des failles de sécurité dans le code hérité',
+        source: 'Secu DevOps',
+        link: 'https://secu-devops.com/ai-legacy-code-scan',
+        description: "Article décrivant comment les modèles d'IA excellent à identifier les vulnérabilités dans le code ancien que les outils statiques traditionnels manquent (Opportunité Sécurité).",
+        theme: 'Sécurité / Maintien'
+    },
+    {
+        date: 'Février 2025',
+        title: 'Risque : Augmentation des vulnérabilités de type "prompt injection" dans les applications.',
+        source: 'Security Post',
+        link: 'https://exemple.com/prompt-injection-risques',
+        description: "Analyse des nouvelles failles de sécurité où des entrées malveillantes (prompts) manipulent le comportement des LLMs intégrés aux applications web (Risque Sécurité).",
+        theme: 'Sécurité'
+    },
+    {
+        date: 'Novembre 2024',
+        title: 'Opportunité : L\'IA comme assistant de documentation technique',
+        source: 'Tech Documentation',
+        link: 'https://exemple.com/ia-documentation',
+        description: "Étude montrant comment les outils IA peuvent générer automatiquement une documentation précise et à jour à partir du code source, réduisant ainsi la dette technique (Opportunité Productivité).",
+        theme: 'Productivité'
+    },
     {
         date: 'Octobre 2024',
         title: 'Le Nouveau Rôle du Développeur Face à l\'IA Codante',
@@ -10,22 +52,13 @@ const articles = [
         theme: 'Sécurité/Productivité'
     },
     {
-        date: 'Septembre 2024',
-        title: 'Batailles Légales : Propriété Intellectuelle et Data Scraping',
-        source: 'Tech Law Review',
-        link: 'https://exemple.com/article2',
-        description: "Revue des poursuites en cours concernant l'utilisation de données protégées par les modèles d'IA générative et les implications pour l'avenir de l'entraînement des modèles.",
-        theme: 'Propriété Intellectuelle'
+        date: 'Sept. 2024',
+        title: 'Risque : Les défis du droit d\'auteur sur les morceaux de code générés par IA.',
+        source: 'Legal Tech Review',
+        link: 'https://exemple.com/droit-auteur-copilot',
+        description: "Revue des questions juridiques : qui détient les droits sur le code produit par l'IA si celle-ci s'est entraînée sur du code sous licence MIT ou GPL? (Risque Légal).",
+        theme: 'Légal/Éthique'
     },
-    {
-        date: 'Juin 2024',
-        title: 'L\'Éthique des Modèles : Biais et Discrimination',
-        source: 'Ethics Today',
-        link: 'https://exemple.com/article3',
-        description: "Étude des biais dans les grands modèles de langage et des stratégies pour garantir l'équité des résultats générés par l'IA dans les applications critiques.",
-        theme: 'Éthique/Biais'
-    },
-    // AJOUTEZ VOS PROPRES ARTICLES ICI
 ];
 ---
 
@@ -68,7 +101,7 @@ const articles = [
         position: relative;
         max-width: 1000px;
         margin: 0 auto;
-        padding-left: 2rem; /* Espace pour la ligne verticale */
+        padding-left: 2rem;
     }
 
     /* Ligne verticale */
@@ -80,7 +113,7 @@ const articles = [
         top: 0;
         bottom: 0;
         left: 0;
-        margin-left: -2px; /* Centrer la ligne */
+        margin-left: -2px;
     }
 
     .timeline-item {
@@ -89,13 +122,14 @@ const articles = [
         border-radius: 0.5rem;
         margin-bottom: 2rem;
         padding: 1.5rem;
-        box-shadow: var(--shadow-md);
+        /* Utilisation d'une ombre CSS directe pour éviter l'erreur de l'éditeur */
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .timeline-item:hover {
         transform: translateY(-5px);
-        box-shadow: var(--shadow-xl);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
     }
 
     /* Point d'intersection (Cercle) */
@@ -107,7 +141,7 @@ const articles = [
         background-color: var(--accent-dark);
         border: 3px solid var(--gray-999);
         border-radius: 50%;
-        left: -2.3rem; /* Positionner le cercle sur la ligne */
+        left: -2.3rem;
         top: 1.5rem;
         z-index: 1;
     }
@@ -142,7 +176,7 @@ const articles = [
         color: var(--gray-200);
     }
 
-    /* Ajustements pour les écrans plus larges */
+    /* Ajustements pour les écrans plus larges (timeline double face) */
     @media (min-width: 768px) {
         .timeline {
             padding-left: 0;
@@ -155,16 +189,15 @@ const articles = [
         }
 
         .timeline-item {
-            width: 45%; /* Les items prennent la moitié de la largeur */
-            padding: 2rem;
+            width: 45%;
         }
 
         .timeline-item:nth-child(odd) {
-            left: 0; /* Items impairs à gauche */
+            left: 0;
         }
 
         .timeline-item:nth-child(even) {
-            left: 55%; /* Items pairs à droite */
+            left: 55%;
         }
 
         /* Points d'intersection des items impairs (gauche) */
