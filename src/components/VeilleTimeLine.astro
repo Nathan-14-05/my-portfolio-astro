@@ -1,0 +1,202 @@
+---
+// Exemple d'articles pour démarrer la frise
+const articles = [
+    {
+        date: 'Octobre 2024',
+        title: 'Le Nouveau Rôle du Développeur Face à l\'IA Codante',
+        source: 'Dev Community',
+        link: 'https://exemple.com/article1',
+        description: "Analyse des outils d'IA (GitHub Copilot, etc.) et de l'impact sur la productivité et les responsabilités des développeurs. Focus sur la vérification humaine des codes générés.",
+        theme: 'Sécurité/Productivité'
+    },
+    {
+        date: 'Septembre 2024',
+        title: 'Batailles Légales : Propriété Intellectuelle et Data Scraping',
+        source: 'Tech Law Review',
+        link: 'https://exemple.com/article2',
+        description: "Revue des poursuites en cours concernant l'utilisation de données protégées par les modèles d'IA générative et les implications pour l'avenir de l'entraînement des modèles.",
+        theme: 'Propriété Intellectuelle'
+    },
+    {
+        date: 'Juin 2024',
+        title: 'L\'Éthique des Modèles : Biais et Discrimination',
+        source: 'Ethics Today',
+        link: 'https://exemple.com/article3',
+        description: "Étude des biais dans les grands modèles de langage et des stratégies pour garantir l'équité des résultats générés par l'IA dans les applications critiques.",
+        theme: 'Éthique/Biais'
+    },
+    // AJOUTEZ VOS PROPRES ARTICLES ICI
+];
+---
+
+<section class="timeline-container">
+    <h2 class="section-title">Frise Chronologique de la Veille</h2>
+    <div class="timeline">
+        {articles.map((item) => (
+                <div class="timeline-item">
+                    <div class="timeline-date">{item.date}</div>
+                    <div class="timeline-content">
+                        <h3>
+                            <a href={item.link} target="_blank" rel="noopener noreferrer">
+                                {item.title}
+                            </a>
+                        </h3>
+                        <p class="source">Source : {item.source} | Thème : {item.theme}</p>
+                        <p>{item.description}</p>
+                    </div>
+                </div>
+        ))}
+    </div>
+</section>
+
+<style>
+    .timeline-container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        padding-top: 2rem;
+    }
+
+    .section-title {
+        color: var(--gray-0);
+        font-size: var(--text-xl);
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .timeline {
+        position: relative;
+        max-width: 1000px;
+        margin: 0 auto;
+        padding-left: 2rem; /* Espace pour la ligne verticale */
+    }
+
+    /* Ligne verticale */
+    .timeline::after {
+        content: '';
+        position: absolute;
+        width: 4px;
+        background-color: var(--accent-regular);
+        top: 0;
+        bottom: 0;
+        left: 0;
+        margin-left: -2px; /* Centrer la ligne */
+    }
+
+    .timeline-item {
+        position: relative;
+        background-color: var(--gray-900);
+        border-radius: 0.5rem;
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        box-shadow: var(--shadow-md);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .timeline-item:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-xl);
+    }
+
+    /* Point d'intersection (Cercle) */
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        background-color: var(--accent-dark);
+        border: 3px solid var(--gray-999);
+        border-radius: 50%;
+        left: -2.3rem; /* Positionner le cercle sur la ligne */
+        top: 1.5rem;
+        z-index: 1;
+    }
+
+    .timeline-date {
+        color: var(--accent-regular);
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        font-size: var(--text-sm);
+        letter-spacing: 0.1em;
+    }
+
+    .timeline-content h3 a {
+        color: var(--gray-0);
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .timeline-content h3 a:hover {
+        color: var(--accent-light);
+        text-decoration: underline;
+    }
+
+    .source {
+        font-size: var(--text-xs);
+        color: var(--gray-400);
+        margin-top: 0.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .timeline-content p {
+        color: var(--gray-200);
+    }
+
+    /* Ajustements pour les écrans plus larges */
+    @media (min-width: 768px) {
+        .timeline {
+            padding-left: 0;
+        }
+
+        /* Ligne verticale au milieu de la page */
+        .timeline::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            width: 45%; /* Les items prennent la moitié de la largeur */
+            padding: 2rem;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0; /* Items impairs à gauche */
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 55%; /* Items pairs à droite */
+        }
+
+        /* Points d'intersection des items impairs (gauche) */
+        .timeline-item:nth-child(odd)::before {
+            left: calc(100% + 2rem);
+        }
+
+        /* Points d'intersection des items pairs (droite) */
+        .timeline-item:nth-child(even)::before {
+            left: -2.3rem;
+        }
+
+        /* Flèches pour l'alignement */
+        .timeline-content::before {
+            content: "";
+            position: absolute;
+            top: 1.8rem;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+        }
+
+        /* Flèche à droite pour les items de gauche */
+        .timeline-item:nth-child(odd) .timeline-content::before {
+            right: -1.75rem;
+            border-left-color: var(--gray-900);
+        }
+
+        /* Flèche à gauche pour les items de droite */
+        .timeline-item:nth-child(even) .timeline-content::before {
+            left: -1.75rem;
+            border-right-color: var(--gray-900);
+        }
+    }
+</style>

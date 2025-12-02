@@ -1,3 +1,54 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import VeilleTimeline from '../components/VeilleTimeline.astro';
+import ContactCTA from '../components/ContactCTA.astro';
 ---
+
+<BaseLayout title="Veille Informatique | IA Générative" description="Frise chronologique de la veille informationnelle sur les impacts de l'Intelligence Artificielle générative.">
+    <div class="stack gap-20">
+        <main class="wrapper about">
+
+            <Hero
+                    title="Veille Informationnelle"
+                    tagline="Impacts de l'IA Générative : Éthique, Sécurité et Propriété Intellectuelle"
+            >
+                <div class="problematique">
+                    <h3>Problématique</h3>
+                    <p>Comment les récentes avancées en matière d'Intelligence Artificielle générative (telles que les LLMs et les modèles de création de code) impactent-elles les enjeux de sécurité, de propriété intellectuelle et d'éthique, et quelles stratégies les développeurs doivent-ils adopter pour minimiser les risques ?</p>
+                </div>
+            </Hero>
+
+            <VeilleTimeline />
+
+        </main>
+
+        <ContactCTA />
+    </div>
+</BaseLayout>
+
+<style>
+    .about {
+        display: flex;
+        flex-direction: column;
+        gap: 3.5rem;
+    }
+
+    .problematique {
+        margin-top: 2rem;
+        padding: 1.5rem;
+        border: 1px solid var(--accent-regular);
+        border-radius: 0.75rem;
+        background: rgba(40, 50, 70, 0.3); /* Légèrement foncé */
+    }
+
+    .problematique h3 {
+        color: var(--accent-regular);
+        font-size: var(--text-xl);
+        margin-bottom: 0.5rem;
+    }
+
+    .problematique p {
+        color: var(--gray-100);
+    }
+</style>
