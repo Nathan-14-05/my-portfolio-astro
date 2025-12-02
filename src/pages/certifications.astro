@@ -1,0 +1,202 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout title="Certifications | Nathan M'boueya" description="Certifications obtenues par Nathan M'boueya en développement, sécurité et RGPD.">
+    <div class="stack gap-20">
+        <main class="wrapper about">
+
+            <Hero
+                    title="Mes Certifications"
+                    tagline="Attestations de compétences et formations validées en cybersécurité et développement."
+            />
+
+            <section>
+                <h2 class="section-title">Certifications Validées</h2>
+                <div class="content">
+
+                    <div class="certification-item">
+                        <h3>SecNumacadémie (ANSSI)</h3>
+                        <p>Formation en cybersécurité fournie par l'Agence Nationale de la Sécurité des Systèmes d'Information (ANSSI).</p>
+                        <p>Détails: Acquisition des fondamentaux en sécurité numérique, essentiels pour toute activité de développement.</p>
+
+                        <div class="cv-container">
+                            <object
+                                    data="/assets/secnum_cert.pdf"
+                                    type="application/pdf"
+                                    class="cert-preview"
+                            >
+                                <p>Aperçu non disponible. Veuillez utiliser le lien de téléchargement ci-dessous.</p>
+                            </object>
+                            <a
+                                    href="/assets/secnum_cert.pdf"
+                                    download="Nathan_Mboueya_Secnumacademie.pdf"
+                                    class="download-link"
+                            >
+                                Télécharger l'Attestation (PDF)
+                            </a>
+                            <a href="https://secnumacademie.gouv.fr/" target="_blank" class="download-link secondary">
+                                Voir le site officiel (SecNumacadémie)
+                            </a>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="certification-item">
+                        <h3>MOOC CNIL : Le RGPD</h3>
+                        <p>Attestation de participation et de réussite au MOOC de la CNIL sur le Règlement Général sur la Protection des Données (RGPD).</p>
+                        <p>Détails: Compréhension des obligations légales des organismes, des droits des personnes et des principes de la protection des données (un atout majeur pour tout développeur).</p>
+
+                        <div class="cv-container">
+                            <object
+                                    data="/assets/cnil_rgpd_cert.pdf"
+                                    type="application/pdf"
+                                    class="cert-preview"
+                            >
+                                <p>Aperçu non disponible. Veuillez utiliser le lien de téléchargement ci-dessous.</p>
+                            </object>
+                            <a
+                                    href="/assets/cnil_rgpd_cert.pdf"
+                                    download="Nathan_Mboueya_CNIL_RGPD.pdf"
+                                    class="download-link"
+                            >
+                                Télécharger l'Attestation (PDF)
+                            </a>
+                            <a href="https://www.cnil.fr/fr/comprendre-le-rgpd/le-mooc-de-la-cnil" target="_blank" class="download-link secondary">
+                                Voir le site officiel (CNIL MOOC)
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <hr>
+
+            <section>
+                <h2 class="section-title">En Cours d'Acquisition</h2>
+                <div class="content">
+                    <div class="certification-item">
+                        <h3>Certificat Cisco Python</h3>
+                        <p>Formation avancée de Cisco NetAcad sur la programmation Python pour les développeurs, couvrant l'orientation objet, la manipulation de fichiers, et les applications réseau.</p>
+                        <p>État actuel : **En cours**. (À la fin de la formation, vous pourrez ajouter le lien de l'attestation ici !)</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <ContactCTA />
+    </div>
+</BaseLayout>
+
+<style>
+    /* Styles spécifiques pour cette page (basés sur about.astro et cv.astro) */
+
+    .about {
+        display: flex;
+        flex-direction: column;
+        gap: 3.5rem;
+    }
+
+    section {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        color: var(--gray-200);
+    }
+
+    .section-title {
+        grid-column-start: 1;
+        font-size: var(--text-xl);
+        color: var(--gray-0);
+    }
+
+    .content {
+        grid-column: 2 / 4;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem; /* Espacement entre les items de certification */
+    }
+
+    /* Style de chaque item de certification */
+    .certification-item {
+        border-bottom: 1px solid var(--gray-800);
+        padding-bottom: 1.5rem;
+    }
+
+    .certification-item:last-child {
+        border-bottom: none;
+    }
+
+    .certification-item h3 {
+        font-size: var(--text-lg);
+        color: var(--gray-0);
+        margin-bottom: 0.5rem;
+    }
+
+    /* Style du conteneur du certificat/pdf */
+    .cv-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px dashed var(--gray-800);
+    }
+
+    .cert-preview {
+        width: 100%;
+        max-width: 400px; /* Limiter la taille de l'aperçu sur mobile */
+        aspect-ratio: 1 / 1.414; /* Ratio A4 */
+        border-radius: 0.75rem;
+        box-shadow: var(--shadow-xl);
+        border: 1px solid var(--gray-800);
+    }
+
+    /* Styles des boutons */
+    .download-link {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        background-color: var(--accent-regular);
+        color: var(--gray-999);
+        text-decoration: none;
+        border-radius: 999rem;
+        font-weight: 600;
+        transition: background-color var(--theme-transition);
+        margin-right: 0.5rem;
+    }
+
+    .download-link.secondary {
+        background-color: var(--gray-700);
+        color: var(--gray-0);
+    }
+
+    .download-link:hover {
+        background-color: var(--accent-dark);
+    }
+
+    .download-link.secondary:hover {
+        background-color: var(--gray-600);
+    }
+
+    /* Media queries pour la grille */
+    @media (min-width: 50em) {
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 60% 1fr;
+        }
+
+        .about > :global(:first-child) {
+            grid-column-start: 2;
+        }
+
+        section {
+            display: contents;
+            font-size: var(--text-lg);
+        }
+    }
+</style>
