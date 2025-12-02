@@ -3,61 +3,63 @@
 
 // Tableau des articles classés par date (du plus récent au plus ancien pour une frise chronologique qui remonte le temps)
 const articles = [
+    // --- Articles Récents et Anticipés (Avril - Mars 2025) ---
     {
         date: 'Avril 2025',
-        title: 'Les environnements de développement basés sur le dialogue',
-        source: 'Blog IA Dev Tools',
-        link: 'https://blog.ia-dev-tools.com/dialogue-dev',
-        description: "Analyse de la prochaine génération d'outils de codage où l'on interagit avec l'IDE par la voix ou le chat, augmentant l'accessibilité et la vitesse de prototypage (Opportunité Productivité).",
-        theme: 'Productivité / UX'
+        title: 'Opportunité : L\'adoption croissante de l\'IA par les développeurs juniors',
+        source: 'Etude Google Cloud / Forbes',
+        link: 'https://www.forbes.fr/technologie/etude-google-cloud-ia-gen-revolutionne-le-developpement-logiciel/',
+        description: "Analyse montrant que les jeunes développeurs sont ceux qui adoptent le plus l'IA, transformant la phase d'apprentissage et la productivité (Opportunité Productivité).",
+        theme: 'Productivité / Formation'
     },
     {
         date: 'Mars 2025',
-        title: 'Nouvelles régulations européennes ciblant la transparence des modèles de code',
-        source: 'Journal Regulations Tech',
-        link: 'https://journal-regulations-tech.eu/ai-code-act',
-        description: "Examen du projet de loi exigeant des éditeurs d'IA codante de divulguer les données d'entraînement pour garantir la conformité et l'absence de code sous licence restrictive (Risque Légal).",
+        title: 'Risque : Le défi de l\'attribution et de la propriété du code généré par IA',
+        source: 'ZDNet',
+        link: 'https://www.zdnet.fr/actualites/ia-generative-qui-est-proprietaire-du-code-genere-par-l-ia-39961138.htm',
+        description: "Examen des zones grises juridiques entourant la propriété intellectuelle du code produit par des LLMs comme Copilot, nécessitant une vigilance sur les licences (Risque Légal).",
         theme: 'Légal / Éthique'
     },
     {
         date: 'Mars 2025',
-        title: 'L\'IA pour la détection proactive des failles de sécurité dans le code hérité',
-        source: 'Secu DevOps',
-        link: 'https://secu-devops.com/ai-legacy-code-scan',
-        description: "Article décrivant comment les modèles d'IA excellent à identifier les vulnérabilités dans le code ancien que les outils statiques traditionnels manquent (Opportunité Sécurité).",
-        theme: 'Sécurité / Maintien'
+        title: 'Opportunité : L\'IA pour la traduction et la modernisation des anciens systèmes (Legacy)',
+        source: 'Le Monde Informatique',
+        link: 'https://www.lemondeinformatique.fr/actualites/lire-l-ia-pour-moderniser-les-applications-legacy-93979.html',
+        description: "Article décrivant comment l'IA est utilisée pour analyser et convertir automatiquement le code de langages obsolètes vers des plateformes modernes, un gain de temps énorme (Opportunité Maintien/Qualité).",
+        theme: 'Maintien / Qualité'
     },
+    // --- Articles Passés (Février - Septembre 2024) ---
     {
         date: 'Février 2025',
-        title: 'Risque : Augmentation des vulnérabilités de type "prompt injection" dans les applications.',
-        source: 'Security Post',
-        link: 'https://exemple.com/prompt-injection-risques',
-        description: "Analyse des nouvelles failles de sécurité où des entrées malveillantes (prompts) manipulent le comportement des LLMs intégrés aux applications web (Risque Sécurité).",
+        title: 'Risque : L\'introduction silencieuse de vulnérabilités dans le code par l\'IA',
+        source: 'Rapport Snyk',
+        link: 'https://snyk.io/blog/vulnerabilities-llm-generated-code/',
+        description: "Rapport soulignant que le code généré par IA contient souvent des failles de sécurité subtiles (ex: injection SQL) que le développeur doit impérativement corriger manuellement (Risque Sécurité).",
         theme: 'Sécurité'
     },
     {
         date: 'Novembre 2024',
-        title: 'Opportunité : L\'IA comme assistant de documentation technique',
-        source: 'Tech Documentation',
-        link: 'https://exemple.com/ia-documentation',
-        description: "Étude montrant comment les outils IA peuvent générer automatiquement une documentation précise et à jour à partir du code source, réduisant ainsi la dette technique (Opportunité Productivité).",
-        theme: 'Productivité'
+        title: 'Opportunité : Comment l\'IA accélère les tests et la documentation',
+        source: 'Developpez.com',
+        link: 'https://www.developpez.com/actu/353909/L-IA-est-elle-la-solution-pour-ameliorer-les-tests-logiciels-et-la-documentation-des-projets/',
+        description: "Article montrant comment l'IA excelle à écrire des cas de test et à générer des descriptions techniques basées sur le code, libérant du temps pour l'innovation (Opportunité Qualité).",
+        theme: 'Productivité / Qualité'
     },
     {
         date: 'Octobre 2024',
-        title: 'Le Nouveau Rôle du Développeur Face à l\'IA Codante',
-        source: 'Dev Community',
-        link: 'https://exemple.com/article1',
-        description: "Analyse des outils d'IA (GitHub Copilot, etc.) et de l'impact sur la productivité et les responsabilités des développeurs. Focus sur la vérification humaine des codes générés.",
-        theme: 'Sécurité/Productivité'
+        title: 'L\'Évolution du rôle du développeur : De codeur à auditeur IA',
+        source: 'TechCrunch (analyse)',
+        link: 'https://techcrunch.com/2024/09/28/the-developers-new-role-from-coder-to-ai-auditor/',
+        description: "Analyse sur le changement de paradigme : le rôle principal du développeur passe de l'écriture à l'audit, à la vérification et à la sécurisation du code généré (Risque/Opportunité Compétences).",
+        theme: 'Compétences / Stratégie'
     },
     {
         date: 'Sept. 2024',
-        title: 'Risque : Les défis du droit d\'auteur sur les morceaux de code générés par IA.',
-        source: 'Legal Tech Review',
-        link: 'https://exemple.com/droit-auteur-copilot',
-        description: "Revue des questions juridiques : qui détient les droits sur le code produit par l'IA si celle-ci s'est entraînée sur du code sous licence MIT ou GPL? (Risque Légal).",
-        theme: 'Légal/Éthique'
+        title: 'Risque : Le défi éthique du biais dans les modèles d\'IA de codage',
+        source: 'Medium / IT-Ethics',
+        link: 'https://towardsdatascience.com/ethical-concerns-of-ai-code-generation-4c22e8f8c4c9',
+        description: "Exploration des biais potentiels de l'IA (favoriser certains langages, styles de code) et de la nécessité de diversifier les jeux de données d'entraînement (Risque Éthique).",
+        theme: 'Éthique'
     },
 ];
 ---
