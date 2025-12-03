@@ -9,8 +9,8 @@ import Hero from '../components/Hero.astro';
         <main class="wrapper about">
 
             <Hero
-                    title="Mon CV"
-                    tagline="Parcours académique, professionnel et compétences techniques."
+                    title="Mon Curriculum Vitae"
+                    tagline="Parcours académique, expériences professionnelles et compétences techniques."
             >
                 <div class="cv-container">
                     <object
@@ -23,24 +23,13 @@ import Hero from '../components/Hero.astro';
 
                     <a
                             href="/assets/2nd_stage.pdf"
-                            download="Nathan_Mboueya_CV.pdf"
+                            download="Nathan_Mboueya_Rapport_Stage.pdf"
                             class="download-link"
                     >
-                        Télécharger le CV (PDF)
+                        Télécharger le Rapport de Stage (PDF)
                     </a>
                 </div>
             </Hero>
-
-            <section>
-                <h2 class="section-title">Expérience Professionnelle</h2>
-                <div class="content">
-                    <p>
-                        **[Titre du Poste/Stage]** | [Nom de l'Entreprise] | [Date Début] - [Date Fin]
-                        <br>
-                        Description concise de la mission et des réalisations clés.
-                    </p>
-                </div>
-            </section>
 
             <section>
                 <h2 class="section-title">Formation & Diplômes</h2>
@@ -48,7 +37,7 @@ import Hero from '../components/Hero.astro';
                     <p>
                         **BTS SIO (Services Informatiques aux Organisations)** | [Nom de l'Établissement] | [Année d'Obtention prévue]
                         <br>
-                        Option SLAM (Solutions Logicielles et Applications Métiers).
+                        Option **SLAM** (Solutions Logicielles et Applications Métiers).
                     </p>
                     <p>
                         **BUT Informatique (1ère Année)** | [Nom de l'IUT] | [Année]
@@ -63,11 +52,47 @@ import Hero from '../components/Hero.astro';
                 <h2 class="section-title">Compétences Techniques</h2>
                 <div class="content">
                     <p>
-                        **Langages :** HTML, CSS, JavaScript, Python, SQL.
+                        **Langages :** HTML, CSS, JavaScript, Node.js, SQL, [Python/PHP/Java].
                         <br>
-                        **Frameworks/Librairies :** Astro, React (ou autre), Tailwind CSS.
+                        **Frameworks/Librairies :** Astro, Express, Handlebars, [React/Vue/Symfony], Tailwind CSS.
                         <br>
-                        **Outils :** Git/GitHub, VS Code, [Autres outils spécifiques].
+                        **Outils & Méthodes :** Git/GitHub, VS Code, Figma, Webflow, [Trello/Jira], Architecture MVC.
+                    </p>
+                </div>
+            </section>
+
+
+            <section>
+                <h2 class="section-title">Expérience Professionnelle</h2>
+                <div class="content">
+                    <h3>Stage Développeur Web Front-End | Milo Agency (M-DESIGN)</h3>
+                    <p>
+                        **Période :** Du 5 mai au 27 juin 2025 (7 semaines) | **Lieu :** Asnières-sur-Seine
+                    </p>
+                    <p>
+                        J'ai effectué mon stage de première année de BTS SIO SLAM au sein de l'agence web **Milo Agency**. Ce stage fut une immersion complète dans le développement **Front-End**, me permettant de participer à toutes les étapes de la création d'un site web client, de la conception à la mise en ligne.
+                    </p>
+
+                    <h4>Missions et Réalisation Principale</h4>
+                    <p>Ma mission principale a été la **conception et le développement d'un site vitrine pour un coach sportif indépendant**. Ce projet a inclus :</p>
+                    <ul>
+                        <li>La **modélisation** des besoins et le **prototypage des maquettes** sur **Figma**.</li>
+                        <li>L'intégration des maquettes sur le CMS **Webflow**.</li>
+                        <li>L'ajout de **personnalisations avancées** en **CSS et JavaScript** (gestion d'un slider dynamique pour les témoignages, animations spécifiques).</li>
+                        <li>La mise en place de la **conformité RGPD** (bandeau cookies et mentions légales).</li>
+                    </ul>
+
+                    <h4>Apports Techniques</h4>
+                    <p>Ce stage a permis de consolider ma maîtrise de l'intégration web (HTML/CSS/JS) et de découvrir l'utilisation professionnelle de **Figma** et de CMS comme **Webflow** et **WordPress**, ainsi que les méthodologies de suivi de projet (Trello).</p>
+
+                    <p class="mt-4">
+                        <a
+                                href="/assets/rapport_stage.pdf"
+                                download="Nathan_Mboueya_Rapport_Stage.pdf"
+                                class="download-link secondary-link"
+                        >
+                            🔗 Accéder au Rapport de Stage Complet
+                        </a>
                     </p>
                 </div>
             </section>
@@ -79,7 +104,7 @@ import Hero from '../components/Hero.astro';
 
 <style>
     /* -------------------------------------------------------------------------- */
-    /* NOUVEAUX STYLES POUR L'APERÇU PDF ET LE BOUTON DE TÉLÉCHARGEMENT */
+    /* STYLES GÉNÉRAUX ET CV PREVIEW (INCHANGÉS) */
     /* -------------------------------------------------------------------------- */
     .cv-container {
         display: flex;
@@ -99,7 +124,7 @@ import Hero from '../components/Hero.astro';
     }
 
     .download-link {
-        /* Style du bouton de téléchargement */
+        /* Style du bouton de téléchargement principal (dans le Hero) */
         display: inline-block;
         padding: 0.75rem 1.5rem;
         background-color: var(--accent-regular);
@@ -107,14 +132,29 @@ import Hero from '../components/Hero.astro';
         text-decoration: none;
         border-radius: 999rem;
         font-weight: 600;
-        transition: background-color var(--theme-transition);
+        transition: background-color var(--theme-transition), transform 0.2s;
     }
 
     .download-link:hover {
         background-color: var(--accent-dark);
+        transform: translateY(-2px);
     }
+
+    /* Style spécifique pour le lien secondaire à l'intérieur de la section */
+    .secondary-link {
+        padding: 0.5rem 1rem;
+        background-color: var(--gray-800);
+        color: var(--accent-regular);
+        border: 1px solid var(--accent-regular);
+        font-weight: 500;
+        border-radius: 0.5rem;
+    }
+    .secondary-link:hover {
+        background-color: var(--gray-700);
+    }
+
     /* -------------------------------------------------------------------------- */
-    /* STYLES DE LA MISE EN PAGE PRINCIPALE (REPRIS DE ABOUT.ASTRO) */
+    /* STYLES DE LA MISE EN PAGE PRINCIPALE (GRILLE ET SECTIONS) */
     /* -------------------------------------------------------------------------- */
     .about {
         display: flex;
@@ -138,6 +178,34 @@ import Hero from '../components/Hero.astro';
     .content {
         grid-column: 2 / 4;
     }
+
+    .content ul {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .content li {
+        margin-bottom: 0.5rem;
+    }
+
+    .content p {
+        margin-bottom: 1rem;
+    }
+
+    .content h3 {
+        color: var(--gray-0);
+        font-size: var(--text-lg);
+        margin-bottom: 0.25rem;
+    }
+
+    .content h4 {
+        color: var(--accent-light);
+        font-size: var(--text-base);
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
 
     .content :global(a) {
         text-decoration: 1px solid underline transparent;
