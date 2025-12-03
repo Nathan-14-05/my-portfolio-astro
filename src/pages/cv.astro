@@ -7,24 +7,24 @@ import Hero from '../components/Hero.astro';
 <BaseLayout title="CV | Nathan M'boueya" description="Curriculum Vitae de Nathan M'boueya">
     <div class="stack gap-20">
         <main class="wrapper about">
-            
+
             <Hero
-                title="Mon CV"
-                tagline="Parcours académique, professionnel et compétences techniques."
+                    title="Mon CV"
+                    tagline="Parcours académique, professionnel et compétences techniques."
             >
                 <div class="cv-container">
-                    <object 
-                        data="/assets/2nd_stage.pdf" 
-                        type="application/pdf"
-                        class="cv-preview"
+                    <object
+                            data="/assets/2nd_stage.pdf"
+                            type="application/pdf"
+                            class="cv-preview"
                     >
                         <p>Aperçu non disponible. Veuillez utiliser le lien de téléchargement ci-dessous.</p>
                     </object>
 
-                    <a 
-                        href="/assets/2nd_stage.pdf" 
-                        download="Nathan_Mboueya_CV.pdf" 
-                        class="download-link"
+                    <a
+                            href="/assets/2nd_stage.pdf"
+                            download="Nathan_Mboueya_CV.pdf"
+                            class="download-link"
                     >
                         Télécharger le CV (PDF)
                     </a>
@@ -39,7 +39,7 @@ import Hero from '../components/Hero.astro';
                         <br>
                         Description concise de la mission et des réalisations clés.
                     </p>
-                    </div>
+                </div>
             </section>
 
             <section>
@@ -92,9 +92,9 @@ import Hero from '../components/Hero.astro';
     .cv-preview {
         width: 100%;
         /* Ratio typique d'un CV A4 */
-        aspect-ratio: 1 / 1.414; 
+        aspect-ratio: 1 / 1.414;
         border-radius: 0.75rem;
-        box-shadow: var(--shadow-xl); 
+        box-shadow: var(--shadow-xl);
         border: 1px solid var(--gray-800);
     }
 
