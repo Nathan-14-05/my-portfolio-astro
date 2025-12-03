@@ -72,45 +72,28 @@ import Hero from '../components/Hero.astro';
                             <span class="stage-period">| Du 5 mai au 27 juin 2025 (7 semaines)</span>
                         </p>
 
-                        <div class="tab-slider-container">
-                            <div class="tab-navigation" role="tablist">
-                                <button class="tab-button active" data-tab="tab-contexte" role="tab" aria-selected="true">Contexte 🏢</button>
-                                <button class="tab-button" data-tab="tab-realisation" role="tab" aria-selected="false">Réalisation 🚀</button>
-                                <button class="tab-button" data-tab="tab-skills" role="tab" aria-selected="false">Compétences 🛠️</button>
-                            </div>
+                        <h4 class="context-title">Contexte & Enjeux 🏢</h4>
+                        <p>
+                            Immersion en environnement professionnel **Agile**. L'objectif principal était de **développer l'autonomie** et de mettre en pratique les compétences Full-Stack du BTS SIO SLAM avec un focus sur le développement Front-End client en agence.
+                        </p>
 
-                            <div class="tab-content-wrapper">
+                        <h4 class="realisation-title">Réalisation Majeure : Site Vitrine pour Coach Sportif 🚀</h4>
+                        <p>
+                            J'ai géré l'ensemble du cycle de vie du Front-End pour un client externe (coach sportif), assurant un produit final optimisé pour l'engagement et la conversion.
+                        </p>
+                        <ul class="realisation-list">
+                            <li>**Conception UX/UI :** Création des **maquettes professionnelles** sur **Figma**, garantissant un design adapté à tous les appareils (**Responsive Design**).</li>
+                            <li>**Intégration Avancée :** Utilisation experte du CMS **Webflow** pour l'intégration, couplée à l'injection de **CSS et JavaScript sur-mesure** pour des fonctionnalités avancées (ex: **slider dynamique** de témoignages, animations).</li>
+                            <li>**Conformité :** Intégration des dispositifs de **Conformité RGPD** obligatoires (bandeau cookies, mentions légales) pour la mise en ligne.</li>
+                        </ul>
 
-                                <div id="tab-contexte" class="tab-pane active" role="tabpanel">
-                                    <h4 class="pane-title">Contexte & Enjeux</h4>
-                                    <p>
-                                        Immersion en environnement professionnel **Agile**. L'objectif principal était de **développer l'autonomie** et de mettre en pratique les compétences Full-Stack du BTS SIO SLAM avec un focus sur le développement Front-End client en agence.
-                                    </p>
-                                </div>
-
-                                <div id="tab-realisation" class="tab-pane" role="tabpanel" hidden>
-                                    <h4 class="pane-title">Réalisation Majeure : Site Vitrine pour Coach Sportif</h4>
-                                    <p>
-                                        J'ai géré l'ensemble du cycle de vie du Front-End pour un client externe (coach sportif), assurant un produit final optimisé pour l'engagement et la conversion.
-                                    </p>
-                                    <ul class="realisation-list">
-                                        <li>**Conception UX/UI :** Création des **maquettes professionnelles** sur **Figma**, garantissant un design adapté à tous les appareils (**Responsive Design**).</li>
-                                        <li>**Intégration Avancée :** Utilisation experte du CMS **Webflow** pour l'intégration, couplée à l'injection de **CSS et JavaScript sur-mesure** pour des fonctionnalités avancées (ex: **slider dynamique** de témoignages, animations).</li>
-                                        <li>**Conformité :** Intégration des dispositifs de **Conformité RGPD** obligatoires (bandeau cookies, mentions légales) pour la mise en ligne.</li>
-                                    </ul>
-                                </div>
-
-                                <div id="tab-skills" class="tab-pane" role="tabpanel" hidden>
-                                    <h4 class="pane-title">Compétences Techniques Développées</h4>
-                                    <p>Ce stage a permis de consolider ma maîtrise de l'intégration web (HTML/CSS/JS) et de découvrir l'utilisation professionnelle des outils de design et de gestion de projet :</p>
-                                    <ul class="realisation-list">
-                                        <li>**Design & Prototypage :** Figma</li>
-                                        <li>**Intégration & CMS :** Webflow, HTML, CSS, JavaScript (Code personnalisé)</li>
-                                        <li>**Méthodologie :** Organisation du travail et suivi de projet via **Trello** (Agile).</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        <h4 class="skills-title">Compétences Techniques Développées 🛠️</h4>
+                        <p>J'ai développé ma maîtrise des outils et langages professionnels :</p>
+                        <ul class="skills-list">
+                            <li>**Design & Prototypage :** Figma</li>
+                            <li>**Intégration & CMS :** Webflow, HTML, CSS, JavaScript (Code personnalisé)</li>
+                            <li>**Méthodologie :** Organisation du travail et suivi de projet via **Trello**.</li>
+                        </ul>
 
                         <div class="rapport-cta">
                             <a
@@ -128,51 +111,6 @@ import Hero from '../components/Hero.astro';
 
         <ContactCTA />
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const tabs = document.querySelectorAll('.tab-button');
-            const panes = document.querySelectorAll('.tab-pane');
-
-            const activateTab = (targetId, targetButton) => {
-                // Désactiver tous les onglets
-                tabs.forEach(t => {
-                    t.classList.remove('active');
-                    t.setAttribute('aria-selected', 'false');
-                });
-
-                // Masquer tous les contenus
-                panes.forEach(pane => {
-                    pane.classList.remove('active');
-                    pane.setAttribute('hidden', true);
-                });
-
-                // Activer le bouton cliqué
-                targetButton.classList.add('active');
-                targetButton.setAttribute('aria-selected', 'true');
-
-                // Afficher le contenu ciblé
-                const targetPane = document.getElementById(targetId);
-                if (targetPane) {
-                    targetPane.classList.add('active');
-                    targetPane.removeAttribute('hidden');
-                }
-            };
-
-            tabs.forEach(tab => {
-                tab.addEventListener('click', (e) => {
-                    const targetId = e.target.dataset.tab;
-                    activateTab(targetId, e.target);
-                });
-            });
-
-            // S'assurer que le premier onglet est bien affiché au chargement (sécurité)
-            const initialTab = document.querySelector('.tab-button.active');
-            if (initialTab) {
-                activateTab(initialTab.dataset.tab, initialTab);
-            }
-        });
-    </script>
 </BaseLayout>
 
 <style>
@@ -183,12 +121,13 @@ import Hero from '../components/Hero.astro';
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1.5rem;
+        gap: 1.5rem; /* Espace entre le CV et le bouton */
         margin-top: 1.5rem;
     }
 
     .cv-preview {
         width: 100%;
+        /* Ratio typique d'un CV A4 */
         aspect-ratio: 1 / 1.414;
         border-radius: 0.75rem;
         box-shadow: var(--shadow-xl);
@@ -196,6 +135,7 @@ import Hero from '../components/Hero.astro';
     }
 
     .download-link {
+        /* Style du bouton de téléchargement principal (dans le Hero) */
         display: inline-block;
         padding: 0.75rem 1.5rem;
         background-color: var(--accent-regular);
@@ -211,6 +151,7 @@ import Hero from '../components/Hero.astro';
         transform: translateY(-2px);
     }
 
+    /* Style spécifique pour le lien secondaire à l'intérieur de la section */
     .secondary-link {
         padding: 0.5rem 1rem;
         background-color: var(--gray-800);
@@ -250,7 +191,6 @@ import Hero from '../components/Hero.astro';
         grid-column: 2 / 4;
     }
 
-    /* Styles pour listes (à conserver pour les sections CV classiques) */
     .content ul {
         list-style-type: disc;
         padding-left: 1.5rem;
@@ -271,12 +211,47 @@ import Hero from '../components/Hero.astro';
         margin-bottom: 0.25rem;
     }
 
+    .content h4 {
+        color: var(--accent-light);
+        font-size: var(--text-base);
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+
+    .content :global(a) {
+        text-decoration: 1px solid underline transparent;
+        text-underline-offset: 0.25em;
+        transition: text-decoration-color var(--theme-transition);
+    }
+
+    .content :global(a:hover),
+    .content :global(a:focus) {
+        text-decoration-color: currentColor;
+    }
+
+    @media (min-width: 50em) {
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 60% 1fr;
+        }
+
+        .about > :global(:first-child) {
+            grid-column-start: 2;
+        }
+
+        section {
+            display: contents;
+            font-size: var(--text-lg);
+        }
+    }
+
     /* ------------------------------------------------------------- */
-    /* STYLES DE LA CARTE STAGE (ADAPTÉS POUR LE SLIDER) */
+    /* NOUVEAUX STYLES SPÉCIFIQUES À LA CARTE STAGE */
     /* ------------------------------------------------------------- */
 
     .stage-card {
-        padding: 1.5rem; /* Réduit le padding pour compenser l'espace des onglets */
+        padding: 2rem;
         border: 1px solid var(--gray-800);
         border-radius: 1rem;
         background-color: var(--gray-900);
@@ -301,48 +276,14 @@ import Hero from '../components/Hero.astro';
         color: var(--gray-300);
     }
 
-    /* --- STYLES DES ONGLETS --- */
-    .tab-navigation {
-        display: flex;
-        justify-content: space-around;
-        padding: 0;
-        margin-bottom: 1.5rem;
-        border-bottom: 1px solid var(--gray-700);
-    }
-
-    .tab-button {
-        flex-grow: 1;
-        background: none;
-        border: none;
-        padding: 1rem 0.5rem;
-        cursor: pointer;
-        font-size: var(--text-base);
-        font-weight: 600;
-        color: var(--gray-400);
-        transition: color 0.3s, border-bottom 0.3s;
-        white-space: nowrap;
-        text-align: center;
-    }
-
-    .tab-button:hover:not(.active) {
-        color: var(--gray-200);
-    }
-
-    .tab-button.active {
-        color: var(--accent-regular);
-        border-bottom: 3px solid var(--accent-regular);
-    }
-
-    .tab-content-wrapper {
-        min-height: 200px; /* Assure que la hauteur ne saute pas trop entre les onglets */
-    }
-
-    .pane-title {
-        /* Titre interne de chaque onglet */
+    .context-title, .realisation-title, .skills-title {
         color: var(--gray-0);
         font-size: var(--text-lg);
+        border-bottom: 2px solid var(--accent-regular);
+        display: inline-block;
+        padding-bottom: 0.25rem;
+        margin-top: 2rem;
         margin-bottom: 1rem;
-        display: none; /* Masqué pour ne pas faire doublon avec le bouton d'onglet */
     }
 
     .realisation-list {
@@ -368,33 +309,16 @@ import Hero from '../components/Hero.astro';
         font-size: var(--text-base);
     }
 
+    .skills-list {
+        margin-top: 1rem;
+    }
+
     .rapport-cta {
         margin-top: 2rem;
         text-align: center;
     }
 
-    /* Cache les anciens titres qui sont maintenant intégrés aux onglets */
-    .context-title, .realisation-title, .skills-title {
-        display: none;
-    }
-
     /* ------------------------------------------------------------- */
     /* FIN DES NOUVEAUX STYLES */
     /* ------------------------------------------------------------- */
-
-    @media (min-width: 50em) {
-        .about {
-            display: grid;
-            grid-template-columns: 1fr 60% 1fr;
-        }
-
-        .about > :global(:first-child) {
-            grid-column-start: 2;
-        }
-
-        section {
-            display: contents;
-            font-size: var(--text-lg);
-        }
-    }
 </style>
